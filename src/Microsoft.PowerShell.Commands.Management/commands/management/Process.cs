@@ -409,24 +409,20 @@ namespace Microsoft.PowerShell.Commands
         /// Process whose exit status has to be checked.
         /// </param>
         /// <returns>Tre if the process has exited or else returns false.</returns>
-        internal static bool TryHasExited(Process process)
+        internal static bool TryHasExited(Process? process)
         {
-            bool hasExited = true;
-
             try
             {
-                hasExited = process.HasExited;
+                return process?.HasExited ?? false;
             }
             catch (Win32Exception)
             {
-                hasExited = false;
+                return false;
             }
             catch (InvalidOperationException)
             {
-                hasExited = false;
+                return false;
             }
-
-            return hasExited;
         }
 
         #endregion Internal
