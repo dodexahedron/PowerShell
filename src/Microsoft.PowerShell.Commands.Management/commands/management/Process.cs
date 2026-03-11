@@ -355,11 +355,11 @@ namespace Microsoft.PowerShell.Commands
 
         // The Name property is not always available, even for
         // live processes (such as the Idle process).
-        internal static string SafeGetProcessName(Process process)
+        internal static string SafeGetProcessName(Process? process)
         {
             try
             {
-                return process.ProcessName;
+                return process?.ProcessName ?? string.Empty;
             }
             catch (Win32Exception)
             {
@@ -372,11 +372,11 @@ namespace Microsoft.PowerShell.Commands
         }
 
         // 2004/12/17-JonN I saw this fail once too, so we'll play it safe
-        internal static int SafeGetProcessId(Process process)
+        internal static int SafeGetProcessId(Process? process)
         {
             try
             {
-                return process.Id;
+                return process?.Id ?? string.Empty;
             }
             catch (Win32Exception)
             {
@@ -388,11 +388,11 @@ namespace Microsoft.PowerShell.Commands
             }
         }
 
-        internal static void SafeRefresh(Process process)
+        internal static void SafeRefresh(Process? process)
         {
             try
             {
-                process.Refresh();
+                process?.Refresh();
             }
             catch (Win32Exception)
             {
