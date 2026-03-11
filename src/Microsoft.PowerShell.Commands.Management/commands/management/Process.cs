@@ -136,7 +136,7 @@ namespace Microsoft.PowerShell.Commands
         }
 
         /// <summary>
-        /// Sort function to sort by Name first, then Id.
+        /// Sort function to sort by Name first, then Id, ignoring case.
         /// </summary>
         /// <param name="x">First Process object.</param>
         /// <param name="y">Second Process object.</param>
