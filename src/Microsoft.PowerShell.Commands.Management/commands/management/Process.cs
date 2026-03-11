@@ -144,7 +144,7 @@ namespace Microsoft.PowerShell.Commands
         /// As string.Compare: returns less than zero if x less than y,
         /// greater than 0 if x greater than y, 0 if x == y.
         /// </returns>
-        private static int ProcessComparison(Process x, Process y)
+        private static int ProcessComparison(Process? x, Process? y)
         {
             int diff = string.Compare(
                 SafeGetProcessName(x),
