@@ -65,11 +65,11 @@ namespace Microsoft.PowerShell.Commands
         /// The Name parameter is declared in subclasses,
         /// since it is optional for GetProcess and mandatory for StopProcess.
         /// </remarks>
-        internal string[] processNames = null;
+        internal string[]? processNames = null;
 
         // The Id parameter is declared in subclasses,
         // since it is positional for StopProcess but not for GetProcess.
-        internal int[] processIds = null;
+        internal int[]? processIds = null;
 
         /// <summary>
         /// If the input is a stream of [collections of]
@@ -83,7 +83,7 @@ namespace Microsoft.PowerShell.Commands
             ParameterSetName = "InputObject",
             Mandatory = true,
             ValueFromPipeline = true)]
-        public virtual Process[] InputObject
+        public virtual Process[]? InputObject
         {
             get
             {
@@ -97,7 +97,7 @@ namespace Microsoft.PowerShell.Commands
             }
         }
 
-        private Process[] _input = null;
+        private Process[]? _input = null;
         #endregion Parameters
 
         #region Internal
